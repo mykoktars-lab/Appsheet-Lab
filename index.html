@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>LabStock</title>
+<meta name="theme-color" content="#0e7c86">
+<meta name="description" content="Inventory laboratorium: stok, barang masuk, dan pemakaian.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="LabStock">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <img src="logo.svg" alt="" class="logo" width="34" height="34">
+  <h1 id="title">Beranda</h1>
+  <button class="icon-btn" data-act="scan-search" aria-label="Scan barcode"><svg viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M4 12h16"/></svg></button>
+  <button class="icon-btn" data-act="settings" aria-label="Pengaturan"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+</header>
+
+<main id="view"></main>
+
+<button class="fab" id="fab" data-act="fab" aria-label="Tambah">
+  <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+</button>
+
+<nav class="tabs" id="tabs">
+  <button data-tab="home"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg><span>Beranda</span></button>
+  <button data-tab="items"><svg viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg><span>Barang</span></button>
+  <button data-tab="log"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg><span>Riwayat</span></button>
+  <button data-tab="monitor"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg><span>Monitor</span></button>
+  <button data-tab="vendors"><svg viewBox="0 0 24 24"><path d="M1 4h13v12H1zM14 8h4l4 4v4h-8z"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg><span>Vendor</span></button>
+</nav>
+
+<div id="sheet" class="sheet" aria-hidden="true">
+  <div class="backdrop" data-act="close"></div>
+  <div class="panel" role="dialog"><div class="grab"></div><div id="sheet-body"></div></div>
+</div>
+<div id="toast" role="status"></div>
+
+<div id="login" class="login">
+  <form data-form="login">
+    <img src="logo.svg" width="72" height="72" alt="" style="border-radius:16px">
+    <h2>LabStock</h2>
+    <p id="login-msg">Masuk untuk membuka data laboratorium</p>
+    <label class="f">Email<input name="email" type="email" required autocomplete="username"></label>
+    <label class="f">Password<input name="password" type="password" required autocomplete="current-password"></label>
+    <button class="btn block" type="submit" id="login-btn">Masuk</button>
+  </form>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
