@@ -1,4 +1,4 @@
-const CACHE = 'labstock-v2';
+const CACHE = 'labstock-v3';
 const ASSETS = ['./', './index.html', './style.css', './app.js', './config.js', './manifest.webmanifest',
   './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png', './favicon.png', './logo.svg'];
 self.addEventListener('install', e => {
@@ -10,7 +10,7 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
   const u = new URL(e.request.url);
-  const mine = u.origin === location.origin, lib = u.hostname === 'www.gstatic.com';
+  const mine = u.origin === location.origin, lib = u.hostname === 'www.gstatic.com' || u.hostname === 'cdnjs.cloudflare.com';
   if (!mine && !lib) return;                       // Firestore/Auth tidak lewat cache
   const store = res => { const c = res.clone(); caches.open(CACHE).then(x => x.put(e.request, c)); return res; };
   if (lib) { e.respondWith(caches.match(e.request).then(h => h || fetch(e.request).then(store))); return; }
