@@ -1,6 +1,6 @@
 {
-  "name": "Appsheet Lab - Inventory Laboratorium",
-  "short_name": "Appsheet Lab",
+  "name": "AppSheet Lab - Inventory Laboratorium",
+  "short_name": "AppSheet Lab",
   "description": "Pendataan stok, barang masuk, dan pemakaian bahan di laboratorium.",
   "lang": "id",
   "start_url": "./index.html",
